@@ -7,7 +7,6 @@ from decouple import config
 
 from prompt import get_chat_messages
 
-EXAMPLE_NAME: str = "June"
 OPENAI_MODEL: str = "gpt-3.5-turbo"
 MAX_TOKENS: int = 100
 TEMPERATURE: float = 1.0  # default
@@ -36,7 +35,7 @@ class SimpleChatBridge:
         if not isinstance(self.api_key, str):
             raise Exception("OpenAI api key unknown.")
 
-    def generate_messages(self, input: str, name: str = EXAMPLE_NAME) -> None:
+    def generate_messages(self, name: str, input: str) -> None:
         messages = get_chat_messages(name, input)
         self._messages = messages
 

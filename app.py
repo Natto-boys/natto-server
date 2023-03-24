@@ -36,7 +36,7 @@ async def respond(ws: WebSocketServerProtocol):
             continue
 
         if data["event"] == "text":
-            chatBridge.generate_messages(data["text"])
+            chatBridge.generate_messages(input=data["text"], name=data["name"])
             await chatBridge.send_chat()
 
     print("WS connection closed")
