@@ -36,6 +36,13 @@ async def respond(ws: WebSocketServerProtocol):
             continue
 
         if data["event"] == "text":
+            if data.get("text") is None or data.get("name") is None:
+                error_msg = {
+                    "error": "Missing 'text' or 'name' field"
+                }
+                msg = json.dumps(error_msg)
+                await ws.send(msg)
+                continue
             chatBridge.generate_messages(input=data["text"], name=data["name"])
             await chatBridge.send_chat()
 
