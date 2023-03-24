@@ -10,8 +10,6 @@ RUN pip install -r requirements.txt
 
 RUN apt-get update
 
-RUN apt-get install libsndfile1 -y
-
 COPY . ./
 
 EXPOSE 8080
