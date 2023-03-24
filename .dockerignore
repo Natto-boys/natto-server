@@ -1,0 +1,9 @@
+# flyctl launch added from .gitignore
+**/.env
+**/__pycache__
+**/pyvenv.cfg
+**/bin
+**/include
+**/lib
+**/whisper.wav
+fly.toml
